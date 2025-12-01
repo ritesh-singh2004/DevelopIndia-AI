@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevelopIndia-AI - Empowering Indian Developers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3f51b5;
+            --secondary: #f50057;
+            --accent: #00b0ff;
+            --light: #f5f5f5;
+            --dark: #263238;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: var(--primary);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 50px;
+        }
+
+        .feature-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 10px;
+            overflow: hidden;
+            border: none;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: var(--primary);
+            color: white;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #303f9f;
+            border-color: #303f9f;
+        }
+
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .login-modal {
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .login-header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .tech-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .tech-card {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            height: 100%;
+            background-color: white;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+
+        .social-icon:hover {
+            color: var(--accent);
+        }
+
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .nav-tabs .nav-link.active {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+        }
+
+        .nav-tabs .nav-link {
+            color: var(--dark);
+        }
+
+        .database-section {
+            background-color: var(--light);
+            padding: 50px 0;
+        }
+
+        .database-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        .developer-card {
+            transition: all 0.3s;
+        }
+
+        .developer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-badge {
+            font-size: 0.8rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .api-testing-area {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .service-listing {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-ring {
+            width: 80px;
+            height: 80px;
+        }
+
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+
+        .filter-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Toast for notifications -->
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true"
+        data-bs-delay="3000">
+        <div class="toast-header">
+            <strong class="me-auto"><DevelopIndia-AI></strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body"></div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-code me-2"></i>
+                <strong>DevelopIndia-AI</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" data-section="home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features" data-section="features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tech" data-section="tech">Technologies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#developers" data-section="developers">Developers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services" data-section="services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#databases" data-section="databases">Databases</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#deployment" data-section="deployment">Deployment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#api-test" data-section="api-test">API Test</a>
+                    </li>
+                </ul>
+                <div>
+                    <button class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <i class="fas fa-sign-in-alt me-1"></i> Login
+                    </button>
+                    <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#registerModal">
+                        <i class="fas fa-user-plus me-1"></i> Register
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-4">Empowering Indian Developers</h1>
+            <p class="lead mb-5">A comprehensive platform to showcase your skills, find projects, and grow your career
+            </p>
+            <div class="d-flex justify-content-center flex-wrap gap-3">
+                <button class="btn btn-light btn-lg px-4" id="getStartedBtn">
+                    <i class="fas fa-rocket me-2"></i> Get Started
+                </button>
+                <button class="btn btn-outline-light btn-lg px-4" id="watchDemoBtn">
+                    <i class="fas fa-play-circle me-2"></i> Watch Demo
+                </button>
+                <button class="btn btn-outline-light btn-lg px-4" id="exploreApiBtn">
+                    <i class="fas fa-code me-2"></i> Explore APIs
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="container mb-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Platform Features</h2>
+            <p class="text-muted">Everything you need to succeed as a developer in one place</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-card card">
+                    <div class="card-header text-center">
+                        <i class="fas fa-user-shield fa-2x mb-2"></i>
+                        <h5 class="card-title mb-0">User Authentication</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Secure login and registration system with multiple authentication options
+                            including OAuth and JWT.</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">JWT Token-based Authentication</li>
+                            <li class="list-group-item">OAuth 2.0 Integration</li>
+                            <li class="list-group-item">Role-based Access Control</li>
+                        </ul>
+                        <div class="mt-3">
+                            <button class="btn btn-sm btn-primary" id="testAuthBtn">
+                                <i class="fas fa-shield-alt me-1"></i> Test Authentication
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card card">
+                    <div class="card-header text-center">
+                        <i class="fas fa-list-alt fa-2x mb-2"></i>
+                        <h5 class="card-title mb-0">Service Listing</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Showcase your development services or find skilled developers for your
+                            projects.</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Advanced Filtering System</li>
+                            <li class="list-group-item">Rating and Reviews</li>
+                            <li class="list-group-item">Project Portfolio Display</li>
+                        </ul>
+                        <div class="mt-3">
+                            <button class="btn btn-sm btn-primary" id="browseServicesBtn">
+                                <i class="fas fa-search me-1"></i> Browse Services
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card card">
+                    <div class="card-header text-center">
+                        <i class="fas fa-code fa-2x mb-2"></i>
+                        <h5 class="card-title mb-0">API Routing</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Well-documented RESTful APIs with examples for all major backend
+                            technologies.</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">RESTful API Design</li>
+                            <li class="list-group-item">GraphQL Endpoints</li>
+                            <li class="list-group-item">WebSocket Support</li>
+                        </ul>
+                        <div class="mt-3">
+                            <button class="btn btn-sm btn-primary" id="testApiBtn">
+                                <i class="fas fa-plug me-1"></i> Test API Endpoints
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developers Section -->
+    <section id="developers" class="container mb-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Featured Developers</h2>
+            <p class="text-muted">Skilled Indian developers ready for your projects</p>
+        </div>
+
+        <div class="filter-section" id="filterSection" style="display: none;">
+            <h5>Filter Developers</h5>
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Skills</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="JavaScript" id="skillJs">
+                        <label class="form-check-label" for="skillJs">JavaScript</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="React" id="skillReact">
+                        <label class="form-check-label" for="skillReact">React</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Node.js" id="skillNode">
+                        <label class="form-check-label" for="skillNode">Node.js</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>Location</label>
+                    <select class="form-select" id="locationFilter">
+                        <option value="">All Locations</option>
+                        <option value="Bangalore">Bangalore</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label>Rating</label>
+                    <select class="form-select" id="ratingFilter">
+                        <option value="0">All Ratings</option>
+                        <option value="4.5">4.5+ Stars</option>
+                        <option value="4.0">4.0+ Stars</option>
+                        <option value="3.5">3.5+ Stars</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mt-3">
+                <button class="btn btn-primary btn-sm" id="applyFiltersBtn">Apply Filters</button>
+                <button class="btn btn-outline-secondary btn-sm ms-2" id="clearFiltersBtn">Clear Filters</button>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-6 mx-auto">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search developers by skills..."
+                        id="developerSearch">
+                    <button class="btn btn-primary" type="button" id="searchButton">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                    <button class="btn btn-outline-secondary" type="button" id="filterButton">
+                        <i class="fas fa-filter"></i> Filters
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="developersList">
+            <!-- Developers will be loaded here by JavaScript -->
+        </div>
+
+        <div class="text-center mt-4">
+            <button class="btn btn-outline-primary" id="loadMoreDevs">Load More Developers</button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="container mb-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Featured Services</h2>
+            <p class="text-muted">Development services offered by our experts</p>
+        </div>
+
+        <div class="row" id="servicesList">
+            <!-- Services will be loaded here by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section id="tech" class="container mb-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Backend Technologies</h2>
+            <p class="text-muted">We support all popular backend frameworks</p>
+        </div>
+
+        <ul class="nav nav-tabs mb-4 justify-content-center" id="techTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="python-tab" data-bs-toggle="tab" data-bs-target="#python"
+                    type="button" role="tab">Python</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="java-tab" data-bs-toggle="tab" data-bs-target="#java" type="button"
+                    role="tab">Java</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="node-tab" data-bs-toggle="tab" data-bs-target="#node" type="button"
+                    role="tab">Node.js</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="php-tab" data-bs-toggle="tab" data-bs-target="#php" type="button"
+                    role="tab">PHP</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="techTabsContent">
+            <!-- Python Flask Content -->
+            <div class="tab-pane fade show active" id="python" role="tabpanel">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="tech-card">
+                            <i class="fab fa-python tech-icon"></i>
+                            <h4>Python Flask</h4>
+                            <p class="text-muted">Lightweight and flexible web framework</p>
+                            <div class="mt-3">
+                                <span class="badge bg-primary me-1">RESTful</span>
+                                <span class="badge bg-secondary me-1">JWT</span>
+                                <span class="badge bg-success">SQLAlchemy</span>
+                            </div>
+                            <div class="mt-3">
+                                <button class="btn btn-sm btn-outline-primary me-2" data-tech="flask" data-action="run">
+                                    <i class="fas fa-play me-1"></i> Run Example
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary" data-tech="flask" data-action="deploy">
+                                    <i class="fas fa-cloud-upload-alt me-1"></i> Deploy
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <h5>Authentication Example</h5>
+                        <div class="code-block">
+                            <pre><code>from flask import Flask, request, jsonify
+from flask_jwt_extended import JWTManager, create_access_token
+
+app = Flask(_name_)
+app.config['JWT_SECRET_KEY'] = 'developindia-super-secret'
+jwt = JWTManager(app)
+
+@app.route('/login', methods=['POST'])
+def login():
+    username = request.json.get('username')
+    password = request.json.get('password')
+    
+    # Validate user credentials (pseudo-code)
+    user = User.query.filter_by(username=username).first()
+    if user and user.check_password(password):
+        access_token = create_access_token(identity=username)
+        return jsonify(access_token=access_token)
+    
+    return jsonify({"msg": "Invalid credentials"}), 401
+
+if _name_ == '_main_':
+    app.run(debug=True)</code></pre>
+                        </div>
+                        <div class="api-testing-area mt-3">
+                            <h6>Test this API Endpoint</h6>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">POST</span>
+                                <input type="text" class="form-control" value="/api/login" readonly>
+                                <button class="btn btn-outline-success" onclick="testApiEndpoint('login')">
+                                    <i class="fas fa-play"></i> Test
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Java Spring Boot Content -->
+            <div class="tab-pane fade" id="java" role="tabpanel">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="tech-card">
+                            <i class="fab fa-java tech-icon"></i>
+                            <h4>Java Spring Boot</h4>
+                            <p class="text-muted">Enterprise-grade Java framework</p>
+                            <div class="mt-3">
+                                <span class="badge bg-primary me-1">Spring Security</span>
+                                <span class="badge bg-secondary me-1">JPA</span>
+                                <span class="badge bg-success">Maven</span>
+                            </div>
+                            <div class="mt-3">
+                                <button class="btn btn-sm btn-outline-primary me-2" data-tech="spring"
+                                    data-action="run">
+                                    <i class="fas fa-play me-1"></i> Run Example
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary" data-tech="spring"
+                                    data-action="deploy">
+                                    <i class="fas fa-cloud-upload-alt me-1"></i> Deploy
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <h5>User Model Example</h5>
+                        <div class="code-block">
+                            <pre><code>package com.developindia.models;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
+@Entity
+@Table(name = "users")
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(unique = true, nullable = false)
+    private String username;
+    
+    @Column(nullable = false)
+    private String password;
+    
+    @Column(unique = true, nullable = false)
+    private String email;
+    
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
+    
+    // Constructors, getters, and setters
+    public User() {}
+    
+    public User(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
+    
+    // Getters and setters
+}</code></pre>
+                        </div>
+                        <div class="api-testing-area mt-3">
+                            <h6>Test User API</h6>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">GET</span>
+                                <input type="text" class="form-control" value="/api/users" readonly>
+                                <button class="btn btn-outline-success" onclick="testApiEndpoint('users')">
+                                    <i class="fas fa-play"></i> Test
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Node.js Express Content -->
+            <div class="tab-pane fade" id="node" role="tabpanel">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="tech-card">
+                            <i class="fab fa-node-js tech-icon"></i>
+                            <h4>Node.js Express</h4>
+                            <p class="text-muted">Fast, unopinionated web framework for Node.js</p>
+                            <div class="mt-3">
+                                <span class="badge bg-primary me-1">Express.js</span>
+                                <span class="badge bg-secondary me-1">Mongoose</span>
+                                <span class="badge bg-success">JWT</span>
+                            </div>
+                            <div class="mt-3">
+                                <button class="btn btn-sm btn-outline-primary me-2" data-tech="node" data-action="run">
+                                    <i class="fas fa-play me-1"></i> Run Example
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary" data-tech="node" data-action="deploy">
+                                    <i class="fas fa-cloud-upload-alt me-1"></i> Deploy
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <h5>API Routing Example</h5>
+                        <div class="code-block">
+                            <pre><code>const express = require('express');
+const router = express.Router();
+const Developer = require('../models/Developer');
+
+// Get all developers
+router.get('/developers', async (req, res) => {
+    try {
+        const { skills, location } = req.query;
+        let filter = {};
+        
+        if (skills) {
+            filter.skills = { $in: skills.split(',') };
+        }
+        
+        if (location) {
+            filter.location = new RegExp(location, 'i');
+        }
+        
+        const developers = await Developer.find(filter)
+            .populate('projects')
+            .exec();
+            
+        res.json(developers);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
+// Get a specific developer
+router.get('/developers/:id', async (req, res) => {
+    try {
+        const developer = await Developer.findById(req.params.id)
+            .populate('projects')
+            .exec();
+            
+        if (!developer) {
+            return res.status(404).json({ message: 'Developer not found' });
+        }
+        
+        res.json(developer);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
+module.exports = router;</code></pre>
+                        </div>
+                        <div class="api-testing-area mt-3">
+                            <h6>Test Developers API</h6>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">GET</span>
+                                <input type="text" class="form-control" value="/api/developers" readonly>
+                                <button class="btn btn-outline-success" onclick="testApiEndpoint('developers')">
+                                    <i class="fas fa-play"></i> Test
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHP Laravel Content -->
+            <div class="tab-pane fade" id="php" role="tabpanel">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="tech-card">
+                            <i class="fab fa-php tech-icon"></i>
+                            <h4>PHP Laravel</h4>
+                            <p class="text-muted">Elegant PHP web framework</p>
+                            <div class="mt-3">
+                                <span class="badge bg-primary me-1">Eloquent ORM</span>
+                                <span class="badge bg-secondary me-1">Artisan</span>
+                                <span class="badge bg-success">Blade</span>
+                            </div>
+                            <div class="mt-3">
+                                <button class="btn btn-sm btn-outline-primary me-2" data-tech="laravel"
+                                    data-action="run">
+                                    <i class="fas fa-play me-1"></i> Run Example
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary" data-tech="laravel"
+                                    data-action="deploy">
+                                    <i class="fas fa-cloud-upload-alt me-1"></i> Deploy
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <h5>Service Model Example</h5>
+                        <div class="code-block">
+                            <pre><code>&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+class Service extends Model
+{
+    use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'title',
+        'description',
+        'category',
+        'price',
+        'duration',
+        'user_id'
+    ];
+
+    /**
+     * Get the user that owns the service.
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Scope a query to only include services of a given category.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  mixed  $category
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeCategory($query, $category)
+    {
+        return $query->where('category', $category);
+    }
+}</code></pre>
+                        </div>
+                        <div class="api-testing-area mt-3">
+                            <h6>Test Services API</h6>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">GET</span>
+                                <input type="text" class="form-control" value="/api/services" readonly>
+                                <button class="btn btn-outline-success" onclick="testApiEndpoint('services')">
+                                    <i class="fas fa-play"></i> Test
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Databases Section -->
+    <section id="databases" class="database-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Database Solutions</h2>
+                <p class="text-muted">Support for both SQL and NoSQL databases</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header text-center">
+                            <i class="fas fa-database database-icon"></i>
+                            <h4 class="card-title">SQL Database (PostgreSQL)</h4>
+                        </div>
+                        <div class="card-body">
+                            <h6>User Table Schema</h6>
+                            <div class="code-block">
+                                <pre><code>CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    bio TEXT,
+    avatar_url VARCHAR(255),
+    location VARCHAR(100),
+    skills TEXT[],
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE services (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    title VARCHAR(100) NOT NULL,
+    description TEXT,
+    category VARCHAR(50),
+    price DECIMAL(10, 2),
+    duration INTEGER,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);</code></pre>
+                            </div>
+                            <div class="mt-3 text-center">
+                                <button class="btn btn-sm btn-outline-primary" data-db="postgres" data-action="query">
+                                    <i class="fas fa-database me-1"></i> Test Query
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header text-center">
+                            <i class="fas fa-database database-icon"></i>
+                            <h4 class="card-title">NoSQL Database (MongoDB)</h4>
+                        </div>
+                        <div class="card-body">
+                            <h6>User Collection Structure</h6>
+                            <div class="code-block">
+                                <pre><code>// User Collection
+{
+  "_id": ObjectId("507f1f77bcf86cd799439011"),
+  "username": "johndeveloper",
+  "email": "john@example.com",
+  "password": "$2a$10$hashedpassword",
+  "profile": {
+    "firstName": "John",
+    "lastName": "Developer",
+    "bio": "Full-stack developer with 5 years of experience",
+    "avatar": "https://example.com/avatar.jpg",
+    "location": "Mumbai, India"
+  },
+  "skills": ["JavaScript", "React", "Node.js", "MongoDB"],
+  "services": [
+    {
+      "serviceId": ObjectId("57d7a12e24b19742a875493a"),
+      "title": "React Web Development",
+      "category": "Web Development",
+      "price": 2500,
+      "duration": 14
+    }
+  ],
+  "createdAt": ISODate("2023-01-15T10:30:00Z"),
+  "updatedAt": ISODate("2023-06-20T15:45:00Z")
+}
+
+// Services Collection
+{
+  "_id": ObjectId("57d7a12e24b19742a875493a"),
+  "title": "React Web Development",
+  "description": "Professional React application development",
+  "category": "Web Development",
+  "price": 2500,
+  "duration": 14,
+  "userId": ObjectId("507f1f77bcf86cd799439011"),
+  "tags": ["react", "javascript", "frontend"],
+  "createdAt": ISODate("2023-05-10T08:15:00Z"),
+  "updatedAt": ISODate("2023-06-15T11:30:00Z")
+}</code></pre>
+                            </div>
+                            <div class="mt-3 text-center">
+                                <button class="btn btn-sm btn-outline-primary" data-db="mongo" data-action="query">
+                                    <i class="fas fa-database me-1"></i> Test Query
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Testing Section -->
+    <section id="api-test" class="container mb-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">API Testing Console</h2>
+            <p class="text-muted">Test our RESTful API endpoints in real-time</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">API Testing Console</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label">Select API Endpoint</label>
+                            <select class="form-select" id="apiEndpoint">
+                                <option value="/api/login">POST /api/login</option>
+                                <option value="/api/register">POST /api/register</option>
+                                <option value="/api/users">GET /api/users</option>
+                                <option value="/api/developers">GET /api/developers</option>
+                                <option value="/api/services">GET /api/services</option>
+                                <option value="/api/profile">GET /api/profile</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">HTTP Method</label>
+                            <div class="btn-group w-100" role="group">
+                                <input type="radio" class="btn-check" name="httpMethod" id="getMethod"
+                                    autocomplete="off" checked>
+                                <label class="btn btn-outline-primary" for="getMethod">GET</label>
+
+                                <input type="radio" class="btn-check" name="httpMethod" id="postMethod"
+                                    autocomplete="off">
+                                <label class="btn btn-outline-success" for="postMethod">POST</label>
+
+                                <input type="radio" class="btn-check" name="httpMethod" id="putMethod"
+                                    autocomplete="off">
+                                <label class="btn btn-outline-warning" for="putMethod">PUT</label>
+
+                                <input type="radio" class="btn-check" name="httpMethod" id="deleteMethod"
+                                    autocomplete="off">
+                                <label class="btn btn-outline-danger" for="deleteMethod">DELETE</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Request Body (JSON)</label>
+                            <textarea class="form-control" id="requestBody" rows="5"
+                                placeholder='{"username": "test", "password": "test123"}'></textarea>
+                        </div>
+                        <button class="btn btn-primary w-100" id="sendRequestBtn">
+                            <i class="fas fa-paper-plane me-2"></i> Send Request
+                        </button>
+                    </div>
+                    <div class="col-md-8">
+                        <label class="form-label">Response</label>
+                        <div class="code-block" id="apiResponse" style="height: 300px; overflow-y: auto;">
+                            <pre>{
+  "status": "ready",
+  "message": "Select an endpoint and click Send Request"
+}</pre>
+                        </div>
+                        <div class="mt-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Response Status: <span id="responseStatus"
+                                        class="badge bg-secondary">Waiting</span></span>
+                                <button class="btn btn-sm btn-outline-secondary" id="clearResponseBtn">
+                                    <i class="fas fa-broom me-1"></i> Clear
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deployment Section -->
+    <section id="deployment" class="container my-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Deployment Options</h2>
+            <p class="text-muted">How to deploy each technology stack</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="tech-card">
+                    <i class="fab fa-python tech-icon"></i>
+                    <h5>Python/Flask</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-server me-2"></i> Heroku</li>
+                        <li><i class="fas fa-cloud me-2"></i> AWS Elastic Beanstalk</li>
+                        <li><i class="fas fa-box me-2"></i> Docker Containers</li>
+                        <li><i class="fas fa-rocket me-2"></i> Google App Engine</li>
+                    </ul>
+                    <button class="btn btn-sm btn-outline-primary mt-2" data-deploy="flask">
+                        <i class="fas fa-cloud-upload-alt me-1"></i> Deploy Now
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="tech-card">
+                    <i class="fab fa-java tech-icon"></i>
+                    <h5>Java/Spring Boot</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-server me-2"></i> AWS EC2</li>
+                        <li><i class="fas fa-cloud me-2"></i> Azure App Service</li>
+                        <li><i class="fas fa-box me-2"></i> JAR with Embedded Tomcat</li>
+                        <li><i class="fas fa-rocket me-2"></i> Google Cloud Run</li>
+                    </ul>
+                    <button class="btn btn-sm btn-outline-primary mt-2" data-deploy="spring">
+                        <i class="fas fa-cloud-upload-alt me-1"></i> Deploy Now
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="tech-card">
+                    <i class="fab fa-node-js tech-icon"></i>
+                    <h5>Node.js/Express</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-server me-2"></i> DigitalOcean Droplets</li>
+                        <li><i class="fas fa-cloud me-2"></i> AWS Lambda</li>
+                        <li><i class="fas fa-box me-2"></i> PM2 Process Manager</li>
+                        <li><i class="fas fa-rocket me-2"></i> Vercel</li>
+                    </ul>
+                    <button class="btn btn-sm btn-outline-primary mt-2" data-deploy="node">
+                        <i class="fas fa-cloud-upload-alt me-1"></i> Deploy Now
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="tech-card">
+                    <i class="fab fa-php tech-icon"></i>
+                    <h5>PHP/Laravel</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-server me-2"></i> Shared Hosting (cPanel)</li>
+                        <li><i class="fas fa-cloud me-2"></i> Laravel Forge</li>
+                        <li><i class="fas fa-box me-2"></i> Docker Containers</li>
+                        <li><i class="fas fa-rocket me-2"></i> AWS Lightsail</li>
+                    </ul>
+                    <button class="btn btn-sm btn-outline-primary mt-2" data-deploy="laravel">
+                        <i class="fas fa-cloud-upload-alt me-1"></i> Deploy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content login-modal">
+                <div class="login-header">
+                    <h4 class="modal-title">Login to DevelopIndia</h4>
+                    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter your password"
+                                required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="remember">
+                            <label class="form-check-label" for="remember">Remember me</label>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Sign In</button>
+                        </div>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p>Or sign in with</p>
+                        <div>
+                            <button class="btn btn-outline-secondary me-2" id="googleLogin">
+                                <i class="fab fa-google"></i> Google
+                            </button>
+                            <button class="btn btn-outline-secondary" id="githubLogin">
+                                <i class="fab fa-github"></i> GitHub
+                            </button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <p>Don't have an account? <a href="#" class="text-decoration-none" data-bs-toggle="modal"
+                                data-bs-target="#registerModal" data-bs-dismiss="modal">Sign up</a></p>
+                        <p><a href="#" class="text-decoration-none" id="forgotPassword">Forgot your password?</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content login-modal">
+                <div class="login-header">
+                    <h4 class="modal-title">Create an Account</h4>
+                    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="registerEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="registerPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="terms">
+                            <label class="form-check-label" for="terms">I agree to the <a href="#">Terms and
+                                    Conditions</a></label>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Create Account</button>
+                        </div>
+                    </form>
+                    <hr>
+                    <div class="text-center">
+                        <p>Already have an account? <a href="#" class="text-decoration-none" data-bs-toggle="modal"
+                                data-bs-target="#loginModal" data-bs-dismiss="modal">Sign in</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5><i class="fas fa-code me-2"></i> DevelopIndia</h5>
+                    <p>Empowering Indian developers to showcase their skills, find projects, and grow their careers.</p>
+                    <div class="mt-3">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Platform</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">Features</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Pricing</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Case Studies</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">Documentation</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Blog</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Tutorials</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">API Reference</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Subscribe to Our Newsletter</h5>
+                    <p>Get the latest updates and news</p>
+                    <form id="newsletterForm">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email address" required>
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p>&copy; 2023 DevelopIndia. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Sample developer data
+        const developers = [
+            {
+                id: 1,
+                name: "Rajesh Kumar",
+                title: "Full Stack Developer",
+                skills: ["JavaScript", "React", "Node.js", "MongoDB", "Express"],
+                location: "Bangalore, India",
+                rating: 4.8,
+                projects: 24,
+                avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+                hourlyRate: "$35",
+                experience: "5 years"
+            },
+            {
+                id: 2,
+                name: "Priya Sharma",
+                title: "Frontend Developer",
+                skills: ["React", "Vue.js", "CSS", "TypeScript", "Sass"],
+                location: "Mumbai, India",
+                rating: 4.9,
+                projects: 18,
+                avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+                hourlyRate: "$30",
+                experience: "4 years"
+            },
+            {
+                id: 3,
+                name: "Amit Patel",
+                title: "Backend Developer",
+                skills: ["Java", "Spring Boot", "MySQL", "AWS", "Docker"],
+                location: "Hyderabad, India",
+                rating: 4.7,
+                projects: 32,
+                avatar: "https://randomuser.me/api/portraits/men/67.jpg",
+                hourlyRate: "$40",
+                experience: "6 years"
+            },
+            {
+                id: 4,
+                name: "Sneha Gupta",
+                title: "Mobile Developer",
+                skills: ["React Native", "Flutter", "Firebase", "iOS", "Android"],
+                location: "Delhi, India",
+                rating: 4.6,
+                projects: 15,
+                avatar: "https://randomuser.me/api/portraits/women/68.jpg",
+                hourlyRate: "$38",
+                experience: "3 years"
+            },
+            {
+                id: 5,
+                name: "Vikram Singh",
+                title: "DevOps Engineer",
+                skills: ["Docker", "Kubernetes", "AWS", "Jenkins", "Linux"],
+                location: "Chennai, India",
+                rating: 4.9,
+                projects: 21,
+                avatar: "https://randomuser.me/api/portraits/men/75.jpg",
+                hourlyRate: "$45",
+                experience: "5 years"
+            },
+            {
+                id: 6,
+                name: "Anjali Mehta",
+                title: "UI/UX Designer",
+                skills: ["Figma", "Sketch", "Adobe XD", "Prototyping", "Wireframing"],
+                location: "Pune, India",
+                rating: 4.8,
+                projects: 19,
+                avatar: "https://randomuser.me/api/portraits/women/26.jpg",
+                hourlyRate: "$32",
+                experience: "4 years"
+            }
+        ];
+
+        // Sample services data
+        const services = [
+            {
+                id: 1,
+                title: "React Web Development",
+                description: "Professional React application development with modern practices and best architecture.",
+                category: "Web Development",
+                price: "$2500",
+                duration: "14 days",
+                tags: ["react", "javascript", "frontend"],
+                rating: 4.8
+            },
+            {
+                id: 2,
+                title: "Full Stack E-commerce",
+                description: "Complete e-commerce solution with React frontend and Node.js backend.",
+                category: "E-commerce",
+                price: "$5000",
+                duration: "30 days",
+                tags: ["react", "node", "mongodb", "ecommerce"],
+                rating: 4.9
+            },
+            {
+                id: 3,
+                title: "Mobile App Development",
+                description: "Cross-platform mobile application development using React Native.",
+                category: "Mobile Development",
+                price: "$3500",
+                duration: "21 days",
+                tags: ["react native", "mobile", "ios", "android"],
+                rating: 4.7
+            },
+            {
+                id: 4,
+                title: "API Development & Integration",
+                description: "RESTful API development and third-party API integration services.",
+                category: "Backend Development",
+                price: "$1800",
+                duration: "10 days",
+                tags: ["api", "rest", "node", "python"],
+                rating: 4.6
+            }
+        ];
+
+        // Initialize Toast
+        const toastEl = document.querySelector('.toast');
+        const toast = new bootstrap.Toast(toastEl);
+
+        // Global functions
+        function showToast(message, type = 'info') {
+            const toastBody = document.querySelector('.toast-body');
+            toastBody.textContent = message;
+
+            const toastHeader = document.querySelector('.toast-header');
+            if (type === 'success') {
+                toastHeader.classList.remove('bg-danger', 'bg-warning', 'bg-info');
+                toastHeader.classList.add('bg-success');
+            } else if (type === 'error') {
+                toastHeader.classList.remove('bg-success', 'bg-warning', 'bg-info');
+                toastHeader.classList.add('bg-danger');
+            } else if (type === 'warning') {
+                toastHeader.classList.remove('bg-success', 'bg-danger', 'bg-info');
+                toastHeader.classList.add('bg-warning');
+            } else {
+                toastHeader.classList.remove('bg-success', 'bg-danger', 'bg-warning');
+                toastHeader.classList.add('bg-info');
+            }
+
+            toast.show();
+        }
+
+        function loadDevelopers(devs) {
+            const developersList = document.getElementById('developersList');
+            developersList.innerHTML = '';
+
+            devs.forEach(dev => {
+                const skillsHtml = dev.skills.map(skill =>
+                    <span class="badge bg-primary service-badge">${skill}</span>
+                ).join('');
+
+                // Create rating stars
+                const stars = '★'.repeat(Math.floor(dev.rating)) + '☆'.repeat(5 - Math.floor(dev.rating));
+
+                const cardHtml = `
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card developer-card h-100">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img src="${dev.avatar}" alt="${dev.name}" class="rounded-circle me-3" width="60" height="60">
+                                    <div>
+                                        <h5 class="card-title mb-0">${dev.name}</h5>
+                                        <p class="text-muted mb-0">${dev.title}</p>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    ${skillsHtml}
+                                </div>
+                                <p class="card-text"><i class="fas fa-map-marker-alt me-2"></i>${dev.location}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="text-warning">${stars}</span>
+                                        <span class="ms-2">${dev.rating}</span>
+                                    </div>
+                                    <div>
+                                        <span class="badge bg-success">${dev.hourlyRate}/hr</span>
+                                    </div>
+                                </div>
+                                <div class="mt-2 d-flex justify-content-between">
+                                    <small><i class="fas fa-briefcase me-1"></i> ${dev.projects} projects</small>
+                                    <small><i class="fas fa-clock me-1"></i> ${dev.experience}</small>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-white border-0">
+                                <button class="btn btn-outline-primary btn-sm me-2 view-profile" data-id="${dev.id}">
+                                    View Profile
+                                </button>
+                                <button class="btn btn-primary btn-sm hire-btn" data-id="${dev.id}">
+                                    Hire Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                developersList.innerHTML += cardHtml;
+            });
+
+            // Add event listeners
+            document.querySelectorAll('.view-profile').forEach(button => {
+                button.addEventListener('click', function () {
+                    const devId = this.getAttribute('data-id');
+                    const developer = developers.find(dev => dev.id === parseInt(devId));
+                    showToast(`Viewing profile of ${developer.name} - ${developer.title}`, 'success');
+                });
+            });
+
+            document.querySelectorAll('.hire-btn').forEach(button => {
+                button.addEventListener('click', function () {
+                    const devId = this.getAttribute('data-id');
+                    const developer = developers.find(dev => dev.id === parseInt(devId));
+                    showToast(`Initiating hiring process for ${developer.name}. Check your email for next steps!`, 'success');
+                });
+            });
+        }
+
+        function loadServices() {
+            const servicesList = document.getElementById('servicesList');
+            servicesList.innerHTML = '';
+
+            services.forEach(service => {
+                const tagsHtml = service.tags.map(tag =>
+                    <span class="badge bg-light text-dark service-badge">${tag}</span>
+                ).join('');
+
+                // Create rating stars
+                const stars = '★'.repeat(Math.floor(service.rating)) + '☆'.repeat(5 - Math.floor(service.rating));
+
+                const serviceHtml = `
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">${service.title}</h5>
+                                <p class="card-text text-muted">${service.description}</p>
+                                <div class="mb-3">
+                                    ${tagsHtml}
+                                </div>
+                                <div class="mb-3">
+                                    <span class="badge bg-primary">${service.category}</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="text-warning">${stars}</span>
+                                        <span class="ms-2">${service.rating}</span>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-primary mb-0">${service.price}</h5>
+                                    </div>
+                                </div>
+                                <p class="card-text"><i class="fas fa-clock me-1"></i> ${service.duration}</p>
+                            </div>
+                            <div class="card-footer bg-white border-0">
+                                <button class="btn btn-primary btn-sm w-100 book-service" data-id="${service.id}">
+                                    <i class="fas fa-shopping-cart me-1"></i> Book Service
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                servicesList.innerHTML += serviceHtml;
+            });
+
+            // Add event listeners for booking services
+            document.querySelectorAll('.book-service').forEach(button => {
+                button.addEventListener('click', function () {
+                    const serviceId = this.getAttribute('data-id');
+                    const service = services.find(s => s.id === parseInt(serviceId));
+                    showToast(`Booking ${service.title} service. Redirecting to checkout...`, 'success');
+                });
+            });
+        }
+
+        // Simulate backend API calls
+        function simulateAPICall(action, data = null) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    let response;
+
+                    switch (action) {
+                        case 'login':
+                            response = {
+                                success: true,
+                                message: 'Login successful!',
+                                token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
+                                user: {
+                                    name: data?.email.split('@')[0] || 'User',
+                                    email: data?.email || 'user@example.com'
+                                }
+                            };
+                            break;
+                        case 'register':
+                            response = {
+                                success: true,
+                                message: 'Registration successful! Please check your email to verify your account.'
+                            };
+                            break;
+                        case 'runCode':
+                            response = {
+                                success: true,
+                                message: `Code executed successfully for ${data.tech}`,
+                                output: `Python Flask server started on http://localhost:5000\nDebug mode: ON\n* Running on http://127.0.0.1:5000\nPress CTRL+C to quit`
+                            };
+                            break;
+                        case 'deploy':
+                            const platforms = {
+                                'flask': 'Heroku',
+                                'spring': 'AWS EC2',
+                                'node': 'Vercel',
+                                'laravel': 'DigitalOcean'
+                            };
+                            response = {
+                                success: true,
+                                message: `Application deployed successfully to ${platforms[data.tech] || data.platform}`,
+                                url: `https://developindia-${data.tech}.example.com`
+                            };
+                            break;
+                        case 'dbQuery':
+                            const dbTypes = {
+                                'postgres': 'PostgreSQL',
+                                'mongo': 'MongoDB'
+                            };
+                            response = {
+                                success: true,
+                                message: `Query executed successfully on ${dbTypes[data.db] || data.db}`,
+                                results: [
+                                    { id: 1, name: 'Rajesh Kumar', email: 'rajesh@example.com' },
+                                    { id: 2, name: 'Priya Sharma', email: 'priya@example.com' },
+                                    { id: 3, name: 'Amit Patel', email: 'amit@example.com' }
+                                ],
+                                count: 3,
+                                time: '0.045 ms'
+                            };
+                            break;
+                        case 'apiTest':
+                            const endpoints = {
+                                'login': { method: 'POST', status: 200, data: { token: 'jwt_token_here', user: { id: 1, name: 'Test User' } } },
+                                'users': { method: 'GET', status: 200, data: developers.slice(0, 3) },
+                                'developers': { method: 'GET', status: 200, data: developers },
+                                'services': { method: 'GET', status: 200, data: services }
+                            };
+                            response = {
+                                success: true,
+                                endpoint: data.endpoint,
+                                method: endpoints[data.endpoint]?.method || 'GET',
+                                status: endpoints[data.endpoint]?.status || 200,
+                                data: endpoints[data.endpoint]?.data || { message: 'API call successful' },
+                                timestamp: new Date().toISOString()
+                            };
+                            break;
+                        default:
+                            response = { success: true, message: 'Action completed successfully' };
+                    }
+
+                    resolve(response);
+                }, 1500);
+            });
+        }
+
+        function testApiEndpoint(endpoint) {
+            showToast(`Testing ${endpoint} API endpoint...`, 'info');
+            simulateAPICall('apiTest', { endpoint }).then(response => {
+                const apiResponse = document.getElementById('apiResponse');
+                apiResponse.innerHTML = `<pre>${JSON.stringify(response, null, 2)}</pre>`;
+                showToast(`${endpoint} API test successful!`, 'success');
+            });
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function () {
+            // Load initial data
+            loadDevelopers(developers);
+            loadServices();
+
+            // Get Started button
+            document.getElementById('getStartedBtn').addEventListener('click', function () {
+                showToast('Getting you started with DevelopIndia! Creating your profile...', 'info');
+                setTimeout(() => {
+                    showToast('Profile created! Check your dashboard for next steps.', 'success');
+                }, 2000);
+            });
+
+            // Watch Demo button
+            document.getElementById('watchDemoBtn').addEventListener('click', function () {
+                showToast('Opening demo video in a new window...', 'info');
+                // Simulate opening demo
+                setTimeout(() => {
+                    showToast('Demo video loaded. Enjoy watching!', 'success');
+                }, 1000);
+            });
+
+            // Explore APIs button
+            document.getElementById('exploreApiBtn').addEventListener('click', function () {
+                document.getElementById('api-test').scrollIntoView({ behavior: 'smooth' });
+                showToast('Navigating to API Testing Console', 'info');
+            });
+
+            // Test Authentication button
+            document.getElementById('testAuthBtn').addEventListener('click', function () {
+                showToast('Testing authentication system...', 'info');
+                simulateAPICall('login', { email: 'test@example.com', password: 'test123' }).then(response => {
+                    showToast('Authentication test successful! JWT token generated.', 'success');
+                });
+            });
+
+            // Browse Services button
+            document.getElementById('browseServicesBtn').addEventListener('click', function () {
+                document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+                showToast('Showing all available services', 'info');
+            });
+
+            // Test API Endpoints button
+            document.getElementById('testApiBtn').addEventListener('click', function () {
+                document.getElementById('api-test').scrollIntoView({ behavior: 'smooth' });
+                showToast('Navigating to API Testing Console', 'info');
+            });
+
+            // Login form
+            document.getElementById('loginForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                showToast('Authenticating...', 'info');
+                simulateAPICall('login', { email, password }).then(response => {
+                    if (response.success) {
+                        showToast(response.message, 'success');
+                        // Update UI for logged in user
+                        const loginBtn = document.querySelector('[data-bs-target="#loginModal"]');
+                        loginBtn.innerHTML = '<i class="fas fa-user me-1"></i> ' + response.user.name;
+                        loginBtn.disabled = true;
+
+                        // Close modal
+                        const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+                        loginModal.hide();
+                    }
+                });
+            });
+
+            // Register form
+            document.getElementById('registerForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const firstName = document.getElementById('firstName').value;
+                const lastName = document.getElementById('lastName').value;
+                const email = document.getElementById('registerEmail').value;
+                const password = document.getElementById('registerPassword').value;
+
+                if (password !== document.getElementById('confirmPassword').value) {
+                    showToast('Passwords do not match!', 'error');
+                    return;
+                }
+
+                if (!document.getElementById('terms').checked) {
+                    showToast('Please accept the terms and conditions', 'error');
+                    return;
+                }
+
+                showToast('Creating your account...', 'info');
+                simulateAPICall('register', { firstName, lastName, email, password }).then(response => {
+                    if (response.success) {
+                        showToast(response.message, 'success');
+                        // Close modal
+                        const registerModal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
+                        registerModal.hide();
+                    }
+                });
+            });
+
+            // OAuth login buttons
+            document.getElementById('googleLogin').addEventListener('click', function () {
+                showToast('Redirecting to Google authentication...', 'info');
+                setTimeout(() => {
+                    showToast('Google authentication successful!', 'success');
+                    const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+                    loginModal.hide();
+                }, 2000);
+            });
+
+            document.getElementById('githubLogin').addEventListener('click', function () {
+                showToast('Redirecting to GitHub authentication...', 'info');
+                setTimeout(() => {
+                    showToast('GitHub authentication successful!', 'success');
+                    const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+                    loginModal.hide();
+                }, 2000);
+            });
+
+            // Forgot password
+            document.getElementById('forgotPassword').addEventListener('click', function (e) {
+                e.preventDefault();
+                const email = prompt('Enter your email address for password reset:');
+                if (email) {
+                    showToast(`Password reset instructions sent to ${email}`, 'success');
+                }
+            });
+
+            // Newsletter form
+            document.getElementById('newsletterForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const email = this.querySelector('input[type="email"]').value;
+                showToast(`Thanks for subscribing to our newsletter, ${email.split('@')[0]} !`, 'success');
+                this.reset();
+            });
+
+            // Tech buttons (Run Example and Deploy)
+            document.querySelectorAll('[data-tech]').forEach(button => {
+                button.addEventListener('click', function () {
+                    const tech = this.getAttribute('data-tech');
+                    const action = this.getAttribute('data-action');
+
+                    if (action === 'run') {
+                        showToast(`Running ${tech} example code...`, 'info');
+                        simulateAPICall('runCode', { tech }).then(response => {
+                            showToast(response.message, 'success');
+                        });
+                    } else if (action === 'deploy') {
+                        showToast(`Deploying ${tech} application...`, 'info');
+                        simulateAPICall('deploy', { tech }).then(response => {
+                            showToast(`${response.message}.Visit: ${response.url}`, 'success');
+                        });
+                    }
+                });
+            });
+
+            // Database query buttons
+            document.querySelectorAll('[data-db]').forEach(button => {
+                button.addEventListener('click', function () {
+                    const db = this.getAttribute('data-db');
+                    showToast(`Executing query on ${db} database...`, 'info');
+                    simulateAPICall('dbQuery', { db }).then(response => {
+                        showToast(`${response.message}.Found ${response.count} records in ${response.time}.`, 'success');
+                    });
+                });
+            });
+
+            // Deployment buttons
+            document.querySelectorAll('[data-deploy]').forEach(button => {
+                button.addEventListener('click', function () {
+                    const platform = this.getAttribute('data-deploy');
+                    showToast(`Deploying to ${platform}...`, 'info');
+                    simulateAPICall('deploy', { platform }).then(response => {
+                        showToast(`${response.message}`, 'success');
+                    });
+                });
+            });
+
+            // Developer search
+            document.getElementById('searchButton').addEventListener('click', function () {
+                const query = document.getElementById('developerSearch').value.toLowerCase();
+                if (query) {
+                    const filteredDevs = developers.filter(dev =>
+                        dev.skills.some(skill => skill.toLowerCase().includes(query)) ||
+                        dev.name.toLowerCase().includes(query) ||
+                        dev.title.toLowerCase().includes(query) ||
+                        dev.location.toLowerCase().includes(query)
+                    );
+
+                    if (filteredDevs.length > 0) {
+                        loadDevelopers(filteredDevs);
+                        showToast(`Found ${filteredDevs.length} developers matching "${query}"`, 'success');
+                    } else {
+                        showToast('No developers found matching your search', 'warning');
+                    }
+                } else {
+                    loadDevelopers(developers);
+                    showToast('Showing all developers', 'info');
+                }
+            });
+
+            // Filter button toggle
+            document.getElementById('filterButton').addEventListener('click', function () {
+                const filterSection = document.getElementById('filterSection');
+                if (filterSection.style.display === 'none') {
+                    filterSection.style.display = 'block';
+                    showToast('Filters panel opened', 'info');
+                } else {
+                    filterSection.style.display = 'none';
+                }
+            });
+
+            // Apply filters
+            document.getElementById('applyFiltersBtn').addEventListener('click', function () {
+                const selectedSkills = [];
+                if (document.getElementById('skillJs').checked) selectedSkills.push('JavaScript');
+                if (document.getElementById('skillReact').checked) selectedSkills.push('React');
+                if (document.getElementById('skillNode').checked) selectedSkills.push('Node.js');
+
+                const location = document.getElementById('locationFilter').value;
+                const rating = parseFloat(document.getElementById('ratingFilter').value);
+
+                let filteredDevs = developers;
+
+                if (selectedSkills.length > 0) {
+                    filteredDevs = filteredDevs.filter(dev =>
+                        selectedSkills.some(skill => dev.skills.includes(skill))
+                    );
+                }
+
+                if (location) {
+                    filteredDevs = filteredDevs.filter(dev =>
+                        dev.location.includes(location)
+                    );
+                }
+
+                if (rating > 0) {
+                    filteredDevs = filteredDevs.filter(dev => dev.rating >= rating);
+                }
+
+                if (filteredDevs.length > 0) {
+                    loadDevelopers(filteredDevs);
+                    showToast(`Found ${filteredDevs.length} developers matching filters`, 'success');
+                } else {
+                    showToast('No developers found with selected filters', 'warning');
+                }
+            });
+
+            // Clear filters
+            document.getElementById('clearFiltersBtn').addEventListener('click', function () {
+                document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+                document.getElementById('locationFilter').value = '';
+                document.getElementById('ratingFilter').value = '0';
+                loadDevelopers(developers);
+                showToast('Filters cleared', 'info');
+            });
+
+            // Load more developers
+            document.getElementById('loadMoreDevs').addEventListener('click', function () {
+                showToast('Loading more developers...', 'info');
+                // Simulate loading more data
+                setTimeout(() => {
+                    const moreDevelopers = [
+                        ...developers,
+                        {
+                            id: 7,
+                            name: "Rahul Verma",
+                            title: "Cloud Architect",
+                            skills: ["AWS", "Azure", "Terraform", "CI/CD"],
+                            location: "Gurgaon, India",
+                            rating: 4.9,
+                            projects: 28,
+                            avatar: "https://randomuser.me/api/portraits/men/82.jpg",
+                            hourlyRate: "$55",
+                            experience: "8 years"
+                        },
+                        {
+                            id: 8,
+                            name: "Neha Joshi",
+                            title: "Data Scientist",
+                            skills: ["Python", "Machine Learning", "TensorFlow", "SQL"],
+                            location: "Bangalore, India",
+                            rating: 4.7,
+                            projects: 16,
+                            avatar: "https://randomuser.me/api/portraits/women/33.jpg",
+                            hourlyRate: "$50",
+                            experience: "5 years"
+                        }
+                    ];
+                    loadDevelopers(moreDevelopers);
+                    showToast('2 more developers loaded successfully!', 'success');
+                }, 1500);
+            });
+
+            // API Testing Console
+            document.getElementById('sendRequestBtn').addEventListener('click', function () {
+                const endpoint = document.getElementById('apiEndpoint').value;
+                const method = document.querySelector('input[name="httpMethod"]:checked').nextElementSibling.textContent;
+                const requestBody = document.getElementById('requestBody').value;
+
+                showToast(`Sending ${method} request to ${endpoint}...`, 'info');
+
+                // Simulate API response
+                setTimeout(() => {
+                    let response;
+                    try {
+                        const parsedBody = requestBody ? JSON.parse(requestBody) : {};
+
+                        response = {
+                            success: true,
+                            endpoint: endpoint,
+                            method: method,
+                            status: 200,
+                            data: {
+                                message: `${method} request successful`,
+                                endpoint: endpoint,
+                                timestamp: new Date().toISOString(),
+                                requestBody: parsedBody,
+                                user: parsedBody.username ? { username: parsedBody.username, loggedIn: true } : null
+                            }
+                        };
+
+                        if (endpoint.includes('login') && method === 'POST') {
+                            response.data.token = 'jwt_mock_token_12345';
+                            response.data.user = { id: 1, name: 'Test User' };
+                        } else if (endpoint.includes('users') || endpoint.includes('developers')) {
+                            response.data = developers.slice(0, 5);
+                            response.data.count = developers.length;
+                        } else if (endpoint.includes('services')) {
+                            response.data = services;
+                        }
+
+                        document.getElementById('responseStatus').textContent = '200 OK';
+                        document.getElementById('responseStatus').className = 'badge bg-success';
+
+                    } catch (error) {
+                        response = {
+                            success: false,
+                            error: 'Invalid JSON in request body',
+                            status: 400
+                        };
+                        document.getElementById('responseStatus').textContent = '400 Bad Request';
+                        document.getElementById('responseStatus').className = 'badge bg-danger';
+                    }
+
+                    const apiResponse = document.getElementById('apiResponse');
+                    apiResponse.innerHTML = `<pre>${JSON.stringify(response, null, 2)}</pre>`;
+
+                    showToast(`${method} ${endpoint} completed successfully!`, 'success');
+                }, 1500);
+            });
+
+            // Clear API response
+            document.getElementById('clearResponseBtn').addEventListener('click', function () {
+                document.getElementById('apiResponse').innerHTML = '<pre>{"status": "ready", "message": "Select an endpoint and click Send Request"}</pre>';
+                document.getElementById('responseStatus').textContent = 'Waiting';
+                document.getElementById('responseStatus').className = 'badge bg-secondary';
+                showToast('Response cleared', 'info');
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[data-section]').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('data-section');
+                    if (sectionId === 'home') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        const section = document.getElementById(sectionId);
+                        if (section) {
+                            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                });
+            });
+
+            // Social media links
+            document.querySelectorAll('.social-icon').forEach(icon => {
+                icon.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const platform = this.querySelector('i').className.split('fa-')[1].split(' ')[0];
+                    showToast(`Opening DevelopIndia on ${platform}...`, 'info');
+                });
+            });
+
+            // Initialize with welcome message
+            setTimeout(() => {
+                showToast('Welcome to DevelopIndia! Explore our platform features.', 'info');
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
